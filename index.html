@@ -4,27 +4,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Index</title>
+    <title>PlayStation Page</title>
     <!-- Menggunakan Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
-        /* CSS Tambahan */
         body {
+            background-color: #003791; /* PlayStation blue */
+            color: #ffffff; /* White text */
             padding: 20px;
+        }
+
+        h1 {
+            color: #f3c20a; /* PlayStation yellow */
+        }
+
+        /* Custom styles for list items */
+        .list-group-item {
+            background-color: #003791; /* PlayStation blue */
+            border: 1px solid #ffffff; /* White border */
+            margin-top: 10px;
+        }
+
+        .list-group-item a {
+            color: #ffffff; /* White text */
+            text-decoration: none;
+        }
+
+        .list-group-item a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h1>Halaman Index</h1>
+        <h1>Home Page</h1>
 
-        <!-- Daftar Tautan -->
-        <ul class="list-group">
-            <li class="list-group-item"><a href="/soal1/index.html">Soal 1</a></li>
-            <li class="list-group-item"><a href="/soal2/index.html">Soal 2</a></li>
-            <li class="list-group-item"><a href="/soal3/home">Soal 3</a></li>
-        </ul>
+        <!-- PlayStation-themed list in three columns -->
+        <div class="row">
+            <div class="col-md-4">
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="/soal1/index.html">Soal 1</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="/soal2/index.html">Soal 2</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="/soal3/home">Soal 3</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 
     <!-- Menggunakan Bootstrap JS (Jika diperlukan) -->
