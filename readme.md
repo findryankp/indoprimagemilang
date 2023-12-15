@@ -10,9 +10,6 @@ php -S localhost:8000
   <a href="images/1.png">
     <img src="images/1.png" alt="Logo" width="40%">
   </a>
-</div>
-
-<div align="center">
   <a href="images/2.png">
     <img src="images/2.png" alt="Logo" width="40%">
   </a>
@@ -22,9 +19,6 @@ php -S localhost:8000
   <a href="images/3.png">
     <img src="images/3.png" alt="Logo" width="40%">
   </a>
-</div>
-
-<div align="center">
   <a href="images/4.png">
     <img src="images/4.png" alt="Logo" width="40%">
   </a>
@@ -34,9 +28,6 @@ php -S localhost:8000
   <a href="images/5.png">
     <img src="images/5.png" alt="Logo" width="40%">
   </a>
-</div>
-
-<div align="center">
   <a href="images/6.png">
     <img src="images/6.png" alt="Logo" width="40%">
   </a>
