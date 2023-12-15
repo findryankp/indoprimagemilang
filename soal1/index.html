@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAID Calculator</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input,
+        select {
+            margin-bottom: 10px;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="mt-4 mb-4">RAID Calculator</h1>
+
+        <form id="raidForm">
+            <div class="form-group">
+                <label for="numberOfDisk">Input Number of Disk:</label>
+                <input type="text" class="form-control" id="numberOfDisk" name="numberOfDisk" oninput="validateNumber(this)"
+                    value="1" min="1" max="8">
+            </div>
+
+            <div class="form-group">
+                <label for="sizePerDisk">Input Size per Disk:</label>
+                <select class="form-control" id="sizePerDisk" name="sizePerDisk">
+                    <option value="300">300GB</option>
+                    <option value="500">500GB</option>
+                    <option value="1000">1TB</option>
+                    <option value="2000">2TB</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="raidType">Input RAID Type:</label>
+                <select class="form-control" id="raidType" name="raidType" onchange="updateRaidType()">
+                    <option value="RAID-0">RAID-0</option>
+                    <option value="RAID-1">RAID-1</option>
+                    <option value="RAID-5">RAID-5</option>
+                    <option value="RAID-10">RAID-10</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="outputCapacity">Output Capacity:</label>
+                <div id="outputCapacity" class="form-control">0</div>
+            </div>
+
+            <div class="form-group">
+                <label for="outputFaultTolerance">Output Fault Tolerance:</label>
+                <div id="outputFaultTolerance" class="form-control">0</div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS (Jika diperlukan) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script>
+        function validateNumber(input) {
+            input.value = input.value.replace(/\D/g, ''); // Remove non-numeric characters
+        }
+
+        function updateRaidType() {
+            var numberOfDisk = parseInt(document.getElementById('numberOfDisk').value);
+            var raidType = document.getElementById('raidType').value;
+            var sizePerDisk = parseInt(document.getElementById('sizePerDisk').value);
+
+            var outputCapacity = document.getElementById('outputCapacity');
+            var outputFaultTolerance = document.getElementById('outputFaultTolerance');
+
+            switch (raidType) {
+                case 'RAID-0':
+                    outputCapacity.textContent = numberOfDisk * sizePerDisk;
+                    outputFaultTolerance.textContent = 0;
+                    break;
+                case 'RAID-1':
+                    outputCapacity.textContent = sizePerDisk;
+                    outputFaultTolerance.textContent = numberOfDisk - 1;
+                    break;
+                case 'RAID-5':
+                    outputCapacity.textContent = (numberOfDisk - 1) * sizePerDisk;
+                    outputFaultTolerance.textContent = 1;
+                    break;
+                case 'RAID-10':
+                    outputCapacity.textContent = (numberOfDisk / 2) * sizePerDisk;
+                    outputFaultTolerance.textContent = 1;
+                    break;
+                default:
+                    outputCapacity.textContent = 0;
+                    outputFaultTolerance.textContent = 0;
+                    break;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
